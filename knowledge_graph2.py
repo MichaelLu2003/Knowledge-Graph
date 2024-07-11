@@ -136,6 +136,7 @@ def query_model_with_few_shot(entity_label, relation_label):
         max_tokens=100
     )
     answer = response.choices[0].message['content'].strip()
+    answer = answer.replace('Category:', '').strip()
     print(f"Query result for '{entity_label} # {relation_label}': {answer}")
     return answer
 
